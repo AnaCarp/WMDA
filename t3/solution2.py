@@ -22,7 +22,6 @@ y = y_true.flatten() + noise
 # Convert to DataFrame
 df = pd.DataFrame({"Feature": X.flatten(), "Target": y})
 
-
 # 2. Separate features and target
 X_feature = df[["Feature"]]
 y_target = df["Target"]
@@ -58,3 +57,20 @@ y_pred_poly = poly_model.predict(X_test_poly)
 print("R² Score:", r2_score(y_test, y_pred_poly))
 print("Mean Squared Error:", mean_squared_error(y_test, y_pred_poly))
 print("Mean Absolute Error:", mean_absolute_error(y_test, y_pred_poly))
+
+# Model de regresie de baza
+# R2 Score: 0.9863245991791381
+# Mean Squared Error: 102.67803175318863
+# Mean Absolute Error: 8.715012907007216
+
+#           VS
+
+# Model de regresie polinomiala
+# R² Score: 0.9987978697835994
+# Mean Squared Error: 3.5904813556899984
+# Mean Absolute Error: 1.6236895430987917
+
+# Adaugarea termenilor de ordin superior face ca modelului polinomial sa aiba o valoare R² aproape de 1 și o reducerea semnificativa a erorilor (MSE și MAE) fata de modelul liniar de baza.
+# Asadar, modelul polinomial se potrivește mult mai bine datelor de antrenament si de test.
+#
+# Avand in vedere ca setul de date este de dimensiuni mici, o performanță atât de buna poate semnala supraadaptare.
